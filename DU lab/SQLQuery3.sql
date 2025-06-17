@@ -305,18 +305,54 @@ FROM DEPOSITE
 --Part – C:  
 
 --1. Update amount of loan no 321 to NULL. (Use Borrow Table) 
+UPDATE  BORROW
+SET AMOUNT = NULL 
+WHERE LOANNO = 321;
+
+SELECT * 
+FROM BORROW
 
 --2. Update branch name of KRANTI to NULL (Use Borrow Table) 
+UPDATE BORROW
+SET  BNAME = NULL 
+WHERE CNAME ='KIRANTI'
+
+SELECT * 
+FROM BORROW
 
 --3. Display the name of borrowers whose Loan number is NULL. (Use Borrow Table) 
+SELECT CNAME
+FROM  BORROW
+WHERE LOANNO IS NULL
 
---4. Display the Borrowers whose having branch. (Use Borrow Table) 
+--4. Display the Borrowers whose having branch. (Use Borrow Table
+SELECT CNAME
+FROM  BORROW
+WHERE BNAME IS NOT  NULL
 
 --5. Update the Loan Amount to 5000, Branch to VRCE & Customer Name to Darshan whose loan no is 481. 
 --(Use Borrow Table) 
+UPDATE BORROW
+SET AMOUNT = 5000 , BNAME = 'VRCE', CNAME = 'Darshan'
+WHERE LOANNO = 481
+
+SELECT *
+FROM BORROW
 
 --6. Update the Deposit table and set the date to 01-01-2021 for all the depositor whose amount is less 
 --than 2000. 
+UPDATE DEPOSITE
+SET ADATE = '2021-01-01'
+WHERE AMOUNT < 2000;
+
+SELECT * 
+FROM DEPOSITE
 
 --7. Update the Deposit table and set the date to NULL & Branch name to ‘ANDHERI whose Account No is 
 --110. 
+UPDATE DEPOSITE
+SET ADATE = NULL , BNAME = 'ANDHERI'
+WHERE ACTNO =110;
+
+SELECT *
+FROM DEPOSITE
