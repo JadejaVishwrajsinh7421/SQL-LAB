@@ -71,15 +71,13 @@ FROM PLAYER
 
 --5. Select players whose age is a prime number or their city belongs to India Country,
 --and insert them into a new table PLAYER_INFO. (Consider Cricketer age between 18 to 55) 
-SELECT *
-INTO PLAYER_INFO
+SELECT * INTO PLAYER_INFO
 FROM CRICKET
-WHERE 2+0=0;
--- *********************************DOUBT *********************************************
---INSERT INTO PLAYER_INFO
---SELECT *
---FROM CRICKET 
---WHERE (AGE BETWEEN 18 AND 55) AND (AGE % 
+WHERE (AGE IN (19,23,29,31,37,41,43,47,53)) OR CITY IN ('Bombay','MUMBAI','JHARKHAND','GUJARAT') ;
+
+
+SELECT *
+FROM PLAYER_INFO
 
 --6. Select players whose age is a multiple of 5 and insert them into a new table PLAYER_DATA.
 SELECT * 
