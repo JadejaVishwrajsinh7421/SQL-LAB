@@ -1,7 +1,7 @@
 USE CSE_3A_127
 
 
---LAB2
+--LAB3
 
 --Part – A: 
 --From the above given tables perform the following queries: 

@@ -1,7 +1,7 @@
 --Lab 4 Perform SQL queries for Select into and Update 
 -- Select into Operation 
 USE CSE_3A_127;
-
+-- lab4
 --Part – A:  
 
 
@@ -260,7 +260,7 @@ FROM DEPOSITE;
 --Part – B:  
 
 --1. Give 10% Increment in Loan Amount. (Use Borrow Table) 
-UPDATE BORROW
+uuUPDATE BORROW
 SET AMOUNT= AMOUNT + (AMOUNT/10);
 
 
