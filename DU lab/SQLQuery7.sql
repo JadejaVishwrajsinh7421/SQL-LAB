@@ -1,0 +1,156 @@
+--Lab 8 Perform SQL queries for Group by with having and Order by 
+USE CSE_3A_127
+--Part – A: 
+CREATE TABLE SALES_DATA (
+REGION VARCHAR(30),
+PRODUCT VARCHAR(20),
+SALES_AMOUNT INT,
+YEAR INT );
+
+INSERT INTO SALES_DATA VALUES
+('North America','Watch',1500,'2023'),
+('Europe','Moblie',1200,'2023'),
+('Asia','Watch',1800,'2023'),
+('North America','TV',900,'2024'),
+('Europe','Watch',2000,'2024'),
+('Asia','Moblie',1000,'2024'),
+('North America','Moblie',1600,'2023'),
+('Europe','TV',1500,'2023'),
+('Asia','TV',1100,'2024'),
+('North America','Watch',1700,'2024')
+
+SELECT *
+FROM SALES_DATA
+
+--1. Display Total Sales Amount by Region. 
+SELECT SUM(SALES_AMOUNT) AS 'SUM_SAL_REG',Region
+FROM SALES_DATA
+GROUP BY REGION
+
+--2. Display Average Sales Amount by Product 
+SELECT AVG(SALES_AMOUNT) AS 'SUM_SAL_PRO',PRODUCT
+FROM SALES_DATA
+GROUP BY PRODUCT
+
+--3. Display Maximum Sales Amount by Year 
+SELECT MAX(SALES_AMOUNT) AS 'SUM_SAL_YY',YEAR
+FROM SALES_DATA
+GROUP BY YEAR
+
+--4. Display Minimum Sales Amount by Region and Year 
+SELECT MIN(SALES_AMOUNT) AS 'SUM_SAL_YY',YEAR,REGION
+FROM SALES_DATA
+GROUP BY YEAR,REGION
+
+--5. Count of Products Sold by Region 
+SELECT COUNT(SALES_AMOUNT) AS 'COUNT_SAL_PRO',REGION
+FROM SALES_DATA
+
+GROUP BY REGION
+
+--6. Display Sales Amount by Year and Product 
+SELECT COUNT(SALES_AMOUNT) AS 'COUNT_SAL_PRO',YEAR,PRODUCT
+FROM SALES_DATA
+GROUP BY YEAR,PRODUCT
+
+--7. Display Regions with Total Sales Greater Than 5000
+SELECT SUM(SALES_AMOUNT) AS SALES_SUM,REGION
+FROM SALES_DATA
+GROUP BY REGION
+HAVING SUM(SALES_AMOUNT) > 5000
+
+--8. Display Products with Average Sales Less Than 10000 
+SELECT AVG(SALES_AMOUNT) AS AVG_SALES, PRODUCT
+FROM SALES_DATA
+GROUP BY PRODUCT
+HAVING AVG(SALES_AMOUNT) <10000
+
+--9. Display Years with Maximum Sales Exceeding 500 
+SELECT MAX(SALES_AMOUNT) AS MAX_SALES, YEAR
+FROM SALES_DATA
+GROUP BY YEAR
+HAVING MAX(SALES_AMOUNT) >500
+
+--10. Display Regions with at Least 3 Distinct Products Sold. 
+SELECT COUNT (DISTINCT PRODUCT) AS PRODUCT_SOLD,REGION
+FROM SALES_DATA
+GROUP BY REGION
+HAVING COUNT (DISTINCT PRODUCT) > 3 OR COUNT (DISTINCT PRODUCT)=3
+
+--11. Display Years with Minimum Sales Less Than 1000 
+SELECT MIN(SALES_AMOUNT) AS MIN_SALES,YEAR
+FROM SALES_DATA
+GROUP BY YEAR
+HAVING MIN(SALES_AMOUNT) <1000
+
+--12. Display Total Sales Amount by Region for Year 2023, Sorted by Total Amount 
+SELECT SUM(SALES_AMOUNT) AS SUM_DISPLAY,YEAR,REGION
+FROM SALES_DATA
+WHERE YEAR = 2023
+GROUP BY REGION,YEAR
+
+--13. Find the Region Where 'Mobile' Had the Lowest Total Sales Across All Years.
+SELECT MIN(SALES_AMOUNT) AS MIN_DIS,REGION,YEAR,PRODUCT
+FROM SALES_DATA
+GROUP BY REGION,YEAR,PRODUCT
+HAVING PRODUCT='Moblie'
+
+--14. Find the Product with the Highest Sales Across All Regions in 2023. 
+SELECT MAX(SALES_AMOUNT) AS MAX_COUNT,PRODUCT,REGION
+FROM SALES_DATA
+WHERE YEAR = 2023
+GROUP BY REGION,PRODUCT
+--15. Find Regions Where 'TV' Sales in 2023 Were Greater Than 1000. 
+SELECT SUM(SALES_AMOUNT) AS COUNT_CONDITION,PRODUCT,REGION
+FROM SALES_DATA
+WHERE YEAR = 2023
+GROUP BY PRODUCT, REGION
+HAVING PRODUCT = 'TV' AND SUM(SALES_AMOUNT)>1000
+
+--Part – B: 
+
+--1. Display Count of Orders by Year and Region, Sorted by Year and Region 
+SELECT COUNT(SALES_AMOUNT) AS COUNT_ORDERS,YEAR,REGION
+FROM SALES_DATA
+GROUP BY YEAR, REGION
+
+--2. Display Regions with Maximum Sales Amount Exceeding 1000 in Any Year, Sorted by Region 
+SELECT MAX(SALES_AMOUNT) AS MAX_ORDERS,REGION
+FROM SALES_DATA
+GROUP BY REGION
+HAVING  MAX(SALES_AMOUNT)>1000
+--3. Display Years with Total Sales Amount Less Than 10000, Sorted by Year Descending 
+SELECT SUM(SALES_AMOUNT) AS SUM_LESS,YEAR
+FROM SALES_DATA
+GROUP BY YEAR
+HAVING SUM(SALES_AMOUNT)<10000
+ORDER BY  SUM(SALES_AMOUNT) DESC
+--4. Display Top 3 Regions by Total Sales Amount in Year 2024 
+SELECT  TOP 3 SUM(SALES_AMOUNT) AS SUM_LESS,REGION
+FROM SALES_DATA
+WHERE YEAR = 2024
+GROUP BY REGION
+
+--5. Find the Year with the Lowest Total Sales Across All Regions.
+SELECT MIN(SALES_AMOUNT) AS LOWEST_SALES,REGION,YEAR
+FROM SALES_DATA
+GROUP BY YEAR,REGION
+
+--Part – C: 
+
+--1. Display Products with Average Sales Amount Between 1000 and 2000, Ordered by Product Name 
+SELECT AVG(SALES_AMOUNT) AS AVG_IN_RANGE,PRODUCT
+FROM SALES_DATA
+GROUP BY PRODUCT
+HAVING AVG(SALES_AMOUNT) BETWEEN 1000 AND 2000
+
+--2. Display Years with More Than 1 Orders from Each Region 
+SELECT COUNT(PRODUCT) AS MORE_1_ORDER,REGION,YEAR
+FROM SALES_DATA
+GROUP BY YEAR,REGION
+HAVING COUNT(PRODUCT)>1
+--3. Display Regions with Average Sales Amount Above 1500 in Year 2023 sort by amount in descending. 
+
+
+--4. Find out region wise duplicate product. 
+--5. Find out year wise duplicate product. 
