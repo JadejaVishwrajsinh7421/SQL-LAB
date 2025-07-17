@@ -1,4 +1,4 @@
---Lab 6Perform SQL queries for Like operator 
+r 
 -- Part – A: 
 --Create following table using query according to the definition. 
 USE CSE_3A_127
