@@ -2,7 +2,7 @@
 -- Select into Operation 
 USE CSE_3A_127;
 -- lab4
---Part – A:  
+--Part ï¿½ A:  
 
 
 --Create table as per following. 
@@ -88,7 +88,7 @@ WHERE (AGE % 5 = 0)
 SELECT *
 FROM PLAYER_DATA
 
---7. Insert the cricketer into IPL table whose city is ‘Jharkhand’ 
+--7. Insert the cricketer into IPL table whose city is ï¿½Jharkhandï¿½ 
 INSERT INTO IPL
 SELECT *
 FROM CRICKET
@@ -97,7 +97,7 @@ WHERE CITY ='Jharkhand'
 SELECT *
 FROM IPL
 
---Part – B:  
+--Part ï¿½ B:  
 
 
 --Create table as per following. 
@@ -148,7 +148,7 @@ WHERE 2+0=9
 SELECT *
 FROM EMPLOYEE_INFO
 
---Part – C:  
+--Part ï¿½ C:  
 
 
 --Perform following queries on Employee table. 
@@ -173,7 +173,7 @@ FROM EMPLOYEE_INFO
 
 --Update Operation 
 
---Part – A:  
+--Part ï¿½ A:  
 
 
 --From the above given tables perform the following queries (UPDATE Operation):  
@@ -257,7 +257,7 @@ SELECT *
 FROM DEPOSITE;
 
  
---Part – B:  
+--Part ï¿½ B:  
 
 --1. Give 10% Increment in Loan Amount. (Use Borrow Table) 
 uuUPDATE BORROW
@@ -283,7 +283,7 @@ FROM DEPOSITE
 
 
 --4. Update the BORROW table to set the amount to 7000 and the branch name to 'CENTRAL' where the 
---customer name is ‘MEHUL’ and the loan number is even. 
+--customer name is ï¿½MEHULï¿½ and the loan number is even. 
 UPDATE BORROW
 SET AMOUNT= 7000 , BNAME = 'CENTRAL'
 WHERE (CNAME = 'MEHUL') AND  (LOANNO %2 =0)
@@ -292,7 +292,7 @@ SELECT *
 FROM BORROW
 
 --5. Update the DEPOSIT table to set the date to '2022-05-15' and the amount to 2500 for all accounts in 
---‘VRCE’ and with an account number less than 105. 
+--ï¿½VRCEï¿½ and with an account number less than 105. 
 UPDATE DEPOSITE
 SET AMOUNT= 2500 , ADATE = '2022-05-15'
 WHERE (BNAME ='VRCE') AND (ACTNO < 105)
@@ -300,7 +300,7 @@ WHERE (BNAME ='VRCE') AND (ACTNO < 105)
 SELECT * 
 FROM DEPOSITE
 
---Part – C:  
+--Part ï¿½ C:  
 
 --1. Update amount of loan no 321 to NULL. (Use Borrow Table) 
 UPDATE  BORROW
@@ -308,7 +308,7 @@ SET AMOUNT = NULL
 WHERE LOANNO = 321;
 
 SELECT * 
-FROM BORROW
+from Borrow
 
 --2. Update branch name of KRANTI to NULL (Use Borrow Table) 
 UPDATE BORROW
@@ -346,7 +346,7 @@ WHERE AMOUNT < 2000;
 SELECT * 
 FROM DEPOSITE
 
---7. Update the Deposit table and set the date to NULL & Branch name to ‘ANDHERI whose Account No is 
+--7. Update the Deposit table and set the date to NULL & Branch name to ï¿½ANDHERI whose Account No is 
 --110. 
 UPDATE DEPOSITE
 SET ADATE = NULL , BNAME = 'ANDHERI'
